@@ -1,9 +1,12 @@
 {
   "name": "baladi",
   "private": true,
+  "workspaces": [
+    "apps/server"
+  ],
   "scripts": {
-    "start": "npm --prefix apps/server start",
-    "build": "npm --prefix apps/server ci",
+    "start": "npm --workspace baladi-server start",
+    "build": "npm --workspace baladi-server run check",
     "server": "npm --prefix apps/server run dev",
     "mobile": "npm --prefix apps/mobile run start",
     "admin": "npm --prefix apps/admin run dev",
