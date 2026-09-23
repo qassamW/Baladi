@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+.expo-test-export/
+.next/
+.browser-profile/
+.browser-profile-chrome/
+.browser-profile-chrome-mobile/
+.ui-check-*.png
+.npm-cache/
+dist/
+.env
+.env.local
+uploads/*
+!uploads/.gitkeep
+*.log
+*.tsbuildinfo

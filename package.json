@@ -1,0 +1,10 @@
+{
+  "name": "baladi",
+  "private": true,
+  "scripts": {
+    "server": "npm --prefix apps/server run dev",
+    "mobile": "npm --prefix apps/mobile run start",
+    "admin": "npm --prefix apps/admin run dev",
+    "check": "npm --prefix apps/server run check && npm --prefix apps/mobile run check && npm --prefix apps/admin run check"
+  }
+}
