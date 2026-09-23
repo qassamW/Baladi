@@ -5,7 +5,7 @@ import type { Report } from "./model.js";
 const localDataDir = path.resolve(process.cwd(), "../../data");
 const dataDir = process.env.BALADI_STORAGE_DIR?.trim() ? path.resolve(process.env.BALADI_STORAGE_DIR) : localDataDir;
 const dataFile = path.join(dataDir, "reports.json");
-const seedFile = path.join(localDataDir, "reports.json");
+const bundledSeedFile = path.resolve(process.cwd(), "data/reports.seed.json");
 let pending: Promise<unknown> = Promise.resolve();
 
 async function ensureDataFile() {
@@ -13,7 +13,7 @@ async function ensureDataFile() {
   catch (error) {
     if (!(error instanceof Error && "code" in error && error.code === "ENOENT")) throw error;
     await mkdir(dataDir, { recursive: true });
-    if (dataFile !== seedFile) await copyFile(seedFile, dataFile);
+    if (dataFile !== bundledSeedFile) await copyFile(bundledSeedFile, dataFile);
     else await writeFile(dataFile, "[]\n", "utf8");
   }
 }
